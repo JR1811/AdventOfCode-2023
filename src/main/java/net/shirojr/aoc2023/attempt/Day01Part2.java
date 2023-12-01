@@ -1,11 +1,11 @@
 package net.shirojr.aoc2023.attempt;
 
-import net.shirojr.aoc2023.Main;
 import net.shirojr.aoc2023.util.DayComponent;
 import net.shirojr.aoc2023.util.FileHelper;
 
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Day01Part2 implements DayComponent {
     private final FileHelper.Task task = FileHelper.getPlainTextData("day01_part2.txt");
@@ -85,7 +85,8 @@ public class Day01Part2 implements DayComponent {
 
             for (var entry : numberMapping().entrySet()) {
                 if (!line.contains(entry.getKey())) continue;
-                if (line.indexOf(entry.getKey()) < tmpFirst.index) tmpFirst = new Pair(line.indexOf(entry.getKey()), entry.getValue());
+                if (line.indexOf(entry.getKey()) < tmpFirst.index)
+                    tmpFirst = new Pair(line.indexOf(entry.getKey()), entry.getValue());
             }
             return tmpFirst;
         }
@@ -94,7 +95,8 @@ public class Day01Part2 implements DayComponent {
             Pair tmpLast = new Pair(-1, -1);
             for (var entry : numberMapping().entrySet()) {
                 if (!line.contains(entry.getKey())) continue;
-                if (line.lastIndexOf(entry.getKey()) > tmpLast.index) tmpLast = new Pair(line.lastIndexOf(entry.getKey()), entry.getValue());
+                if (line.lastIndexOf(entry.getKey()) > tmpLast.index)
+                    tmpLast = new Pair(line.lastIndexOf(entry.getKey()), entry.getValue());
             }
             return tmpLast;
         }
