@@ -34,7 +34,13 @@ public class FileHelper {
             else problem.add(line);
         }
 
-        String dayAndPart = fileName.split("day")[1].split(".txt")[0];
+        String dayAndPart = "";
+        if (fileName.contains("day")) {
+            dayAndPart = fileName.split("day")[1].split(".txt")[0];
+        } else if (fileName.contains("example")) {
+            dayAndPart = fileName.split("example")[1].split(".txt")[0];
+        }
+
         return new Task(dayAndPart, problem, data);
     }
 
