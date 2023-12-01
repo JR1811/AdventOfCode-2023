@@ -13,7 +13,9 @@ public class Main {
 
         for (DayComponent day : manager.days) {
             TextHelper.printHeader("Day " + day.getDay());
-            System.out.println(day.getProblem());
+            for (String problemLine : day.getProblem()) {
+                System.out.println(problemLine);
+            }
             TextHelper.printSpace();
             System.out.println(day.getSolution());
         }
