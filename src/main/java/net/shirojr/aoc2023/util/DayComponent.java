@@ -1,11 +1,11 @@
 package net.shirojr.aoc2023.util;
 
-import net.shirojr.aoc2023.Main;
+import java.util.List;
 
 public interface DayComponent {
     int getDay();
 
-    String getProblem();
+    List<String> getProblem();
 
     String getSolution();
 }
