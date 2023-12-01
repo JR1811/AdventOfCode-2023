@@ -9,8 +9,8 @@ public class Day01 implements DayComponent {
     private final FileHelper.Task task = FileHelper.getPlainTextData("day01.txt");
 
     @Override
-    public int getDay() {
-        return task.day();
+    public String getDay() {
+        return task.dayAndPart();
     }
 
     @Override
@@ -25,6 +25,10 @@ public class Day01 implements DayComponent {
             sum += Integer.parseInt(getFirstAndLastDigitFromLine(line));
         }
         return String.valueOf(sum);
+    }
+
+    public List<String> getDataSetFromFile() {
+        return this.task.dataLines();
     }
 
     private static String getFirstAndLastDigitFromLine(String input) {

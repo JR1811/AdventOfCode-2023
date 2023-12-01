@@ -10,7 +10,7 @@ class Day01Test {
 
     @Test
     void getDay() {
-        Assertions.assertEquals(1, day01.getDay());
+        Assertions.assertEquals("01", day01.getDay());
     }
 
     @Test

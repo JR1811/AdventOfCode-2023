@@ -34,10 +34,10 @@ public class FileHelper {
             else problem.add(line);
         }
 
-        int dayNumber = Integer.parseInt(fileName.split("day")[1].split(".txt")[0]);
-        return new Task(dayNumber, problem, data);
+        String dayAndPart = fileName.split("day")[1].split(".txt")[0];
+        return new Task(dayAndPart, problem, data);
     }
 
-    public record Task(int day, List<String> problemLines, List<String> dataLines) {
+    public record Task(String dayAndPart, List<String> problemLines, List<String> dataLines) {
     }
 }
