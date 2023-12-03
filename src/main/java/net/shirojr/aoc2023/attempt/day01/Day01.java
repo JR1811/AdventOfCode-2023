@@ -1,4 +1,4 @@
-package net.shirojr.aoc2023.attempt;
+package net.shirojr.aoc2023.attempt.day01;
 
 import net.shirojr.aoc2023.util.DayComponent;
 import net.shirojr.aoc2023.util.FileHelper;
@@ -6,7 +6,11 @@ import net.shirojr.aoc2023.util.FileHelper;
 import java.util.List;
 
 public class Day01 implements DayComponent {
-    private final FileHelper.Task task = FileHelper.getPlainTextData("day01.txt");
+    private final FileHelper.Task task;
+
+    public Day01(String filename) {
+        task = FileHelper.getPlainTextData(filename);
+    }
 
     @Override
     public String getDay() {

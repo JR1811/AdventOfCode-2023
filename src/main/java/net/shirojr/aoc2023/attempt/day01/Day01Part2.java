@@ -1,4 +1,4 @@
-package net.shirojr.aoc2023.attempt;
+package net.shirojr.aoc2023.attempt.day01;
 
 import net.shirojr.aoc2023.util.DayComponent;
 import net.shirojr.aoc2023.util.FileHelper;
@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Day01Part2 implements DayComponent {
-    private final FileHelper.Task task = FileHelper.getPlainTextData("day01_part2.txt");
+    private final FileHelper.Task task;
     private final DayComponent day01;
 
-    public Day01Part2(DayComponent dayComponent) {
+    public Day01Part2(String fileName, DayComponent dayComponent) {
         this.day01 = dayComponent;
+        this.task = FileHelper.getPlainTextData(fileName);
     }
 
     @Override
