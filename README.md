@@ -28,4 +28,4 @@ Today wasn't as difficult as yesterday. The only problem here was the repeated n
 I also felt like I had a proper use for the unit testing. I set up the test from the start but with the smaller example data where the expected value was already given. After using that I could test easily if my code did, what it was supposed to do, 
 even if I used the actual data, where I had no expected result yet.
 
-![TDD](https://miro.medium.com/v2/resize:fit:400/0*nT4gGPFCSlEA3ulM.jpg)
+![nesting-joker](https://github.com/JR1811/AdventOfCode-2023/assets/36027822/bc820a94-06c3-4c6e-9d32-97358d353f28)
