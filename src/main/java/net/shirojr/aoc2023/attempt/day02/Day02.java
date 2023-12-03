@@ -37,6 +37,10 @@ public class Day02 implements DayComponent {
         return String.valueOf(sum);
     }
 
+    public List<String> getDataSetFromFile() {
+        return this.task.dataLines();
+    }
+
     public static List<Game> getPlayedGames(List<String> lines) {
         List<Game> playedGames = new ArrayList<>();
         for (int i = 1; i <= lines.size(); i++) {

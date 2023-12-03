@@ -3,7 +3,10 @@ package net.shirojr.aoc2023.attempt.day02;
 import net.shirojr.aoc2023.util.DayComponent;
 import net.shirojr.aoc2023.util.FileHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Day02Part2 implements DayComponent {
 
@@ -28,8 +31,31 @@ public class Day02Part2 implements DayComponent {
 
     @Override
     public String getSolution() {
+        List<String> unprocessedLines = day02.getDataSetFromFile();
+        List<Day02.Game> playedGames = Day02.getPlayedGames(unprocessedLines);
 
+        int sum = 0;
+        for (Day02.Game game : playedGames) {
+            List<Integer> lowestPossibleCounts = getLowestPossibleCountOfCubesInSet(game).values().stream().toList();;
+            sum += lowestPossibleCounts.stream().reduce(1, (a, b) -> a * b);
+        }
 
-        return null;
+        return String.valueOf(sum);
+    }
+
+    public static Map<Day02.Game.Cubes.CubeColor, Integer> getLowestPossibleCountOfCubesInSet(Day02.Game games) {
+        Map<Day02.Game.Cubes.CubeColor, Integer> lowestCountForColor = new HashMap<>();
+        for (var cubes : games.cubeSets()) {
+            for (var entry : cubes) {
+                if (!lowestCountForColor.containsKey(entry.color())) {
+                    lowestCountForColor.put(entry.color(), entry.count());
+                }
+                for (var colorEntry : lowestCountForColor.entrySet()) {
+                    if (!colorEntry.getKey().equals(entry.color())) continue;
+                    if (colorEntry.getValue() < entry.count()) colorEntry.setValue(entry.count());
+                }
+            }
+        }
+        return lowestCountForColor;
     }
 }

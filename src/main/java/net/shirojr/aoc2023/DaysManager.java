@@ -21,5 +21,6 @@ public class DaysManager {
         days.add(day01);
         days.add(day01Part2);
         days.add(day02);
+        days.add(day02Part2);
     }
 }
