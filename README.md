@@ -7,7 +7,7 @@ My attempts at solving AoC-2023 problems with Java. For more information check o
 
 - Commit to the whole thing. Don't stop doing them halfway through.
 - Use OOP Design Patterns more consciously, if needed.
-- Make use of "Unit-Tests"
+- Make use of "Unit-Tests" and potentially realize, why they are useful.
 - Have fun!
 
 ![ramlethal-valentine](https://media.tenor.com/5OasumneRNIAAAAM/smile-ramlethal.gif)
@@ -21,3 +21,11 @@ Part one was done easily. It was only some simple string handling. The second pa
 If the difficulty of those exercises keeps being on that level, it might be a bit harder this year compared to the last ones...
 
 ![heavy-scared](https://i.redd.it/s55qwl1xgn3c1.jpg)
+
+### Day 02
+
+Today wasn't as difficult as yesterday. The only problem here was the repeated nesting of elements. I could've done a way better job at cleaning up the code but I wanted to finish this day in less than 24 hours. Maybe I will clean up this mess at a later day. 
+I also felt like I had a proper use for the unit testing. I set up the test from the start but with the smaller example data where the expected value was already given. After using that I could test easily if my code did, what it was supposed to do, 
+even if I used the actual data, where I had no expected result yet.
+
+![TDD](https://miro.medium.com/v2/resize:fit:400/0*nT4gGPFCSlEA3ulM.jpg)
