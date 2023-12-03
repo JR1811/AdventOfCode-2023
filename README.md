@@ -25,6 +25,7 @@ If the difficulty of those exercises keeps being on that level, it might be a bi
 ### Day 02
 
 Today wasn't as difficult as yesterday. The only problem here was the repeated nesting of elements. I could've done a way better job at cleaning up the code but I wanted to finish this day in less than 24 hours. Maybe I will clean up this mess at a later day. 
+
 I also felt like I had a proper use for the unit testing. I set up the test from the start but with the smaller example data where the expected value was already given. After using that I could test easily if my code did, what it was supposed to do, 
 even if I used the actual data, where I had no expected result yet.
 
