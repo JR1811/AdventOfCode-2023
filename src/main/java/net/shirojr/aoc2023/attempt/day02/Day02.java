@@ -95,18 +95,6 @@ public class Day02 implements DayComponent {
     }
 
     public record Game(int index, List<List<Cubes>> cubeSets) {
-        public int getMaxCountOfColor(Cubes.CubeColor color) {
-            int count = -1;
-            for (var set : cubeSets) {
-                for (var cubes : set) {
-                    if (cubes.color.equals(color)) {
-                        count = cubes.count;
-                    }
-                }
-            }
-            return count;
-        }
-
         public record Cubes(int count, CubeColor color) {
             public enum CubeColor {
                 RED("red"), GREEN("green"), BLUE("blue");
