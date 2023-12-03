@@ -1,11 +1,12 @@
 package net.shirojr.aoc2023.attempt.day01;
 
 import net.shirojr.aoc2023.attempt.day01.Day01;
+import net.shirojr.aoc2023.util.DayComponent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class Day01Test {
-    Day01 day01 = new Day01("example01.txt");
+    DayComponent day01 = new Day01("example01.txt");
 
     @Test
     void getDay() {

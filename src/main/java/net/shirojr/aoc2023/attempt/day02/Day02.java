@@ -3,10 +3,13 @@ package net.shirojr.aoc2023.attempt.day02;
 import net.shirojr.aoc2023.util.DayComponent;
 import net.shirojr.aoc2023.util.FileHelper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Day02 implements DayComponent {
     final FileHelper.Task task;
+
     public Day02(String fileName) {
         this.task = FileHelper.getPlainTextData(fileName);
     }
@@ -23,44 +26,49 @@ public class Day02 implements DayComponent {
 
     @Override
     public String getSolution() {
-        Game.Cubes maxCubesRed = new Game.Cubes(12, Game.Cubes.CubeColor.RED);
-        Game.Cubes maxCubesGreen = new Game.Cubes(13, Game.Cubes.CubeColor.GREEN);
-        Game.Cubes maxCubesBlue = new Game.Cubes(14, Game.Cubes.CubeColor.BLUE);
-
         List<String> unprocessedLines = task.dataLines();
-        List<Game> playedGames = new ArrayList<>();
-        for (int i = 1; i <= unprocessedLines.size(); i++) {
-            playedGames.add(getGameSet(i, unprocessedLines.get(i - 1)));
-        }
+        List<Game> playedGames = getPlayedGames(unprocessedLines);
+        List<Game> possibleGames = getPossibleGames(playedGames);
 
+        int sum = 0;
+        for (var entry : possibleGames) {
+            sum += entry.index;
+        }
+        return String.valueOf(sum);
+    }
+
+    public static List<Game> getPlayedGames(List<String> lines) {
+        List<Game> playedGames = new ArrayList<>();
+        for (int i = 1; i <= lines.size(); i++) {
+            playedGames.add(getGameSet(i, lines.get(i - 1)));
+        }
+        return playedGames;
+    }
+
+    public static List<Game> getPossibleGames(List<Game> playedGames) {
         List<Game> possibleGames = new ArrayList<>();
         for (var gameSet : playedGames) {
             boolean isPossible = true;
             for (var game : gameSet.cubeSets) {
                 for (var cubes : game) {
-                    switch (cubes.color) {
-                        case RED -> {
-                            if (maxCubesRed.count < cubes.count) isPossible = false;
-                        }
-                        case GREEN -> {
-                            if (maxCubesGreen.count < cubes.count) isPossible = false;
-                        }
-                        case BLUE -> {
-                            if (maxCubesBlue.count < cubes.count) isPossible = false;
+                    List<Game.Cubes> maxCountList = getCubesMaxCountList(12, 13, 14);
+                    for (var maxCountCubes : maxCountList) {
+                        if (maxCountCubes.count < cubes.count) {
+                            isPossible = false;
+                            break;
                         }
                     }
                 }
             }
             if (isPossible) possibleGames.add(gameSet);
         }
+        return possibleGames;
+    }
 
-        int sum = 0;
-        for (var entry : possibleGames) {
-            sum += entry.index;
-        }
-
-
-        return String.valueOf(sum);
+    public static List<Game.Cubes> getCubesMaxCountList(int red, int green, int blue) {
+        return List.of(new Game.Cubes(red, Game.Cubes.CubeColor.RED),
+                new Game.Cubes(green, Game.Cubes.CubeColor.GREEN),
+                new Game.Cubes(blue, Game.Cubes.CubeColor.BLUE));
     }
 
     public static Game getGameSet(int index, String line) {
@@ -85,7 +93,7 @@ public class Day02 implements DayComponent {
     public record Game(int index, List<List<Cubes>> cubeSets) {
         public int getMaxCountOfColor(Cubes.CubeColor color) {
             int count = -1;
-            for (var set: cubeSets) {
+            for (var set : cubeSets) {
                 for (var cubes : set) {
                     if (cubes.color.equals(color)) {
                         count = cubes.count;
@@ -94,6 +102,7 @@ public class Day02 implements DayComponent {
             }
             return count;
         }
+
         public record Cubes(int count, CubeColor color) {
             public enum CubeColor {
                 RED("red"), GREEN("green"), BLUE("blue");
