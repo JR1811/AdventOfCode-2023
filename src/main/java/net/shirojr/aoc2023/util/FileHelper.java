@@ -10,7 +10,6 @@ public class FileHelper {
     public static Task getPlainTextData(String fileName) {
         List<String> lines = new ArrayList<>();
         File file = new File("src/main/resources/input/" + fileName);
-
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext()) {
@@ -19,7 +18,6 @@ public class FileHelper {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         List<String> problem = new ArrayList<>();
         List<String> data = new ArrayList<>();
         String divider = "---divider---";
@@ -33,14 +31,12 @@ public class FileHelper {
             if (isData) data.add(line);
             else problem.add(line);
         }
-
         String dayAndPart = "";
         if (fileName.contains("day")) {
             dayAndPart = fileName.split("day")[1].split(".txt")[0];
         } else if (fileName.contains("example")) {
             dayAndPart = fileName.split("example")[1].split(".txt")[0];
         }
-
         return new Task(dayAndPart, problem, data);
     }
 
