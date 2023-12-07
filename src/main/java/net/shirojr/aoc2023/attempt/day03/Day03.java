@@ -40,7 +40,7 @@ public class Day03 implements DayComponent {
                         if (j == line.toCharArray().length - 1) {   // is last symbol in line
                             String finishedPartName = potentialPartStringBuilder.toString();
                             PotentialPartNumber partNumber =
-                                    new PotentialPartNumber(j - finishedPartName.length() + 1, i, //FIXME: line index finder only gets first entry if the same symbols are found!!!
+                                    new PotentialPartNumber(j - finishedPartName.length() + 1, i,
                                             potentialPartStringBuilder.toString(), new ArrayList<>());
                             partNumbers.add(partNumber);
                         }
@@ -49,7 +49,7 @@ public class Day03 implements DayComponent {
                         if (j < 1) continue;
                         String finishedPartName = potentialPartStringBuilder.toString();
                         if (finishedPartName.isBlank()) continue;
-                        partNumbers.add(new PotentialPartNumber(j - finishedPartName.length(), i, finishedPartName, new ArrayList<>())); //FIXME: line index finder only gets first entry if the same symbols are found!!!
+                        partNumbers.add(new PotentialPartNumber(j - finishedPartName.length(), i, finishedPartName, new ArrayList<>()));
                         potentialPartStringBuilder.setLength(0);
                     }
                 }
