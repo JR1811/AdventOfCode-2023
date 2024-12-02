@@ -1,11 +1,11 @@
-package net.shirojr.aoc2023.attempt.day01;
+package net.shirojr.aoc2024.attempt.day01;
 
 import net.shirojr.common.util.DayComponent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class Day01Test {
-    DayComponent day01 = new Day01("2023/example01.txt");
+    DayComponent day01 = new Day01("2024/example01.txt");
 
     @Test
     void getDay() {
@@ -19,6 +19,6 @@ class Day01Test {
 
     @Test
     void getSolution() {
-        Assertions.assertEquals("142", day01.getSolution());
+        Assertions.assertEquals("11", day01.getSolution());
     }
 }

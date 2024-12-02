@@ -1,7 +1,7 @@
 package net.shirojr.aoc2023.attempt.day01;
 
-import net.shirojr.aoc2023.util.DayComponent;
-import net.shirojr.aoc2023.util.FileHelper;
+import net.shirojr.common.util.DayComponent;
+import net.shirojr.common.util.FileHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -57,7 +57,7 @@ public class Day01Part2 implements DayComponent {
         input = input.toLowerCase();
         String digits = input.replaceAll("[a-z]", "");
 
-        if (digits.length() < 1) {
+        if (digits.isEmpty()) {
             Pair first = Pair.getAlphabeticalFirst(input);
             Pair last = Pair.getAlphabeticalLast(input);
             return String.valueOf(first.value) + last.value;

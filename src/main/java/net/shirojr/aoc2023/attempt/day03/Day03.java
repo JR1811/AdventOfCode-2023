@@ -1,7 +1,7 @@
 package net.shirojr.aoc2023.attempt.day03;
 
-import net.shirojr.aoc2023.util.DayComponent;
-import net.shirojr.aoc2023.util.FileHelper;
+import net.shirojr.common.util.DayComponent;
+import net.shirojr.common.util.FileHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +127,6 @@ public class Day03 implements DayComponent {
                     }
                 }
             }
-
             return symbols;
         }
 
@@ -184,6 +183,7 @@ public class Day03 implements DayComponent {
         }
     }
 
+    @SuppressWarnings("unused")
     public static class PotentialPartNumber {
         private final int[] indexRange = new int[2];
         private final int lineNumber;

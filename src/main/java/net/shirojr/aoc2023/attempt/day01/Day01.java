@@ -1,7 +1,7 @@
 package net.shirojr.aoc2023.attempt.day01;
 
-import net.shirojr.aoc2023.util.DayComponent;
-import net.shirojr.aoc2023.util.FileHelper;
+import net.shirojr.common.util.DayComponent;
+import net.shirojr.common.util.FileHelper;
 
 import java.util.List;
 

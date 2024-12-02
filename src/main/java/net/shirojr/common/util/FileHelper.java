@@ -1,4 +1,4 @@
-package net.shirojr.aoc2023.util;
+package net.shirojr.common.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +16,7 @@ public class FileHelper {
                 lines.add(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.print(e.getMessage());
         }
         List<String> problem = new ArrayList<>();
         List<String> data = new ArrayList<>();

@@ -1,9 +1,8 @@
 package net.shirojr.aoc2023.attempt.day02;
 
-import net.shirojr.aoc2023.util.DayComponent;
-import net.shirojr.aoc2023.util.FileHelper;
+import net.shirojr.common.util.DayComponent;
+import net.shirojr.common.util.FileHelper;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +35,7 @@ public class Day02Part2 implements DayComponent {
 
         int sum = 0;
         for (Day02.Game game : playedGames) {
-            List<Integer> lowestPossibleCounts = getLowestPossibleCountOfCubesInSet(game).values().stream().toList();;
+            List<Integer> lowestPossibleCounts = getLowestPossibleCountOfCubesInSet(game).values().stream().toList();
             sum += lowestPossibleCounts.stream().reduce(1, (a, b) -> a * b);
         }
 

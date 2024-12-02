@@ -1,7 +1,7 @@
-package net.shirojr.aoc2023;
+package net.shirojr.common;
 
-import net.shirojr.aoc2023.util.DayComponent;
-import net.shirojr.aoc2023.util.TextHelper;
+import net.shirojr.common.util.DayComponent;
+import net.shirojr.common.util.TextHelper;
 
 public class Main {
     public static DaysManager manager = new DaysManager();

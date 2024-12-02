@@ -1,4 +1,4 @@
-package net.shirojr.aoc2023.util;
+package net.shirojr.common.util;
 
 import java.util.List;
 
